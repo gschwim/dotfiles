@@ -1,0 +1,21 @@
+[submodule "nvim/pack/plugins/opt/auto-pairs"]
+	path = nvim/pack/plugins/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "nvim/pack/plugins/opt/lightline"]
+	path = nvim/pack/plugins/opt/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "nvim/pack/plugins/opt/semshi"]
+	path = nvim/pack/plugins/opt/semshi
+	url = https://github.com/numirias/semshi.git
+[submodule "nvim/pack/plugins/opt/vim-python-pep8-indent"]
+	path = nvim/pack/plugins/opt/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule "nvim/pack/plugins/opt/vim-commentary"]
+	path = nvim/pack/plugins/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "nvim/pack/plugins/opt/ale"]
+	path = nvim/pack/plugins/opt/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "nvim/pack/plugins/opt/onedark"]
+	path = nvim/pack/plugins/opt/onedark
+	url = https://github.com/joshdick/onedark.vim.git
