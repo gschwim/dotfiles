@@ -22,6 +22,11 @@ set title        " show terminal title
 """ Editor
 set scrolloff=3  " show 3 lines of context around cursor
 set list         " show invisible characters
+let g:python_pep8_indent_hang_closing = 1
+
+"""YAML indents the right way
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 
 """ Global Tabs and Spaces configurations
 "set expandtab    " use spaces instead of tabs
