@@ -2,6 +2,14 @@
 set encoding=utf-8
 set cc=80
 
+""" Keybinding stuff
+nnoremap <Left> :echo "Stop that!"<CR>
+nnoremap <Right> :echo "Stop that!"<CR>
+nnoremap <Up> :echo "Stop that!"<CR>
+nnoremap <Down> :echo "Stop that!"<CR>
+
+
+
 
 """ Tab Completion
 " TODO - what does this do?
@@ -22,7 +30,10 @@ set title        " show terminal title
 """ Editor
 set scrolloff=3  " show 3 lines of context around cursor
 set list         " show invisible characters
+
+""" Indent stuff for python
 let g:python_pep8_indent_hang_closing = 1
+let g:python_pep8_indent_multiline_string = 4
 
 """YAML indents the right way
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
