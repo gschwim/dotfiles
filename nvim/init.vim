@@ -53,6 +53,9 @@ packadd! lightline
 packadd! semshi
 packadd! vim-python-pep8-indent
 packadd! vim-commentary
+packadd! indentLine
+let g:indentLine_char = "┆"
+let g:indentLine_setColors = 0
 
 " Flake8 config for ale, hopefully works in venv too
 packadd! ale
