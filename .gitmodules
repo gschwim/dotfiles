@@ -22,3 +22,6 @@
 [submodule "nvim/pack/plugins/opt/indentLine"]
 	path = nvim/pack/plugins/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "nvim/pack/plugins/opt/rust.vim"]
+	path = nvim/pack/plugins/opt/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git

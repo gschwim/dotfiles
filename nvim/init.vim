@@ -8,8 +8,8 @@ nnoremap <Right> :echo "Stop that!"<CR>
 nnoremap <Up> :echo "Stop that!"<CR>
 nnoremap <Down> :echo "Stop that!"<CR>
 
-
-
+" Clears hlsearch highlighting
+:nnoremap <CR> :nohlsearch<CR>/<BS>
 
 """ Tab Completion
 " TODO - what does this do?
@@ -53,9 +53,10 @@ packadd! lightline
 packadd! semshi
 packadd! vim-python-pep8-indent
 packadd! vim-commentary
+packadd! rust.vim
 packadd! indentLine
 let g:indentLine_char = "┆"
-let g:indentLine_setColors = 0
+" let g:indentLine_setColors = 0
 
 " Flake8 config for ale, hopefully works in venv too
 packadd! ale
@@ -82,11 +83,13 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
+let g:lightline = { 'colorscheme': 'onedark' }
 
 
 
 syntax on
+" what does this do?
+filetype plugin indent on
 colorscheme onedark
 
 " Update Remote Plugins
