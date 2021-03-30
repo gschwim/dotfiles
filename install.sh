@@ -15,6 +15,7 @@ cp -a nvim ~/.config/
 
 # in with the new
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+cp zshrc ~/.zshrc
 if test -e ~/.oh-my-zsh; then
 	echo "Oh-My-Zsh already installed. Updating..."
 	zsh -c "source ~/.zshrc; omz update"	
@@ -33,7 +34,6 @@ else
 
 fi
 
-cp zshrc ~/.zshrc
 
 # install pyenv
 
