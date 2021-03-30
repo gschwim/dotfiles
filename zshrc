@@ -125,7 +125,7 @@ eval "$(pyenv virtualenv-init -)"
 alias vim=nvim
 alias vi=nvim
 alias nv=nvim
-if [ -x $(which colorls) ]; then 
+if [[ -x $(which colorls) ]]; then 
 	alias ls='colorls -lA --sd'
 else
 	echo "Colorls is not installed. Skipping..."
