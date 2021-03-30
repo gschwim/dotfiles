@@ -39,8 +39,9 @@ cp zshrc ~/.zshrc
 
 if test -e ~/.pyenv; then 
 	echo "pyenv already installed. Updating..."
-	cd $(pyenv root)
+	cd ~/.pyenv
 	git pull
+	# zsh -c "source ~/.zshrc; echo $(pyenv root); cd $(pyenv root); git pull"
 	cd $WORKDIR
 else
 	echo "Installing pyenv..."
