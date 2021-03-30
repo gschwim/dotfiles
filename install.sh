@@ -14,6 +14,14 @@ cp -a nvim ~/.config/
 # rm ~/.zshrc
 
 # in with the new
+if [[ `uname` == "Linux" ]] ; then
+	ZPATH=$(which zsh)
+	if ! [ -x "$ZPATH" ] ; then
+		echo "Installing zsh..."
+		sudo apt install zsh
+	fi
+fi
+
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 cp zshrc ~/.zshrc
 if test -e ~/.oh-my-zsh; then
