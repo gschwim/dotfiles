@@ -18,6 +18,9 @@ SPACESHIP_CHAR_COLOR_SUCCESS=”yellow”
 SPACESHIP_PROMPT_DEFAULT_PREFIX=$(echo $HOST | cut -d . -f 1)
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=”true”
 SPACESHIP_USER_SHOW=”true”
+SPACESHIP_RPROMPT_ORDER=(
+	time
+	)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
