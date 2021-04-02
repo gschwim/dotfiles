@@ -2,6 +2,9 @@
 set encoding=utf-8
 set cc=80
 
+" python stuff
+let g:python3_host_prog = '/Users/schwim/.pyenv/versions/3.9.1/bin/python'
+
 """ Keybinding stuff
 nnoremap <Left> :echo "Stop that!"<CR>
 nnoremap <Right> :echo "Stop that!"<CR>
