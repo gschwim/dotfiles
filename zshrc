@@ -97,7 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # pyenv
-export PATH="/Users/schwim/.pyenv/bin:$PATH"
+# Not sure why this line was in there. 04.12.2021
+# export PATH="/Users/schwim/.pyenv/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
