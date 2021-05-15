@@ -99,9 +99,17 @@ source $ZSH/oh-my-zsh.sh
 # pyenv
 # Not sure why this line was in there. 04.12.2021
 # export PATH="/Users/schwim/.pyenv/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 export PATH="$HOME/.local/bin:$PATH"
+# eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
