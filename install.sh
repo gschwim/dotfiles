@@ -60,7 +60,7 @@ fi
 if [[ `uname` == "Linux" ]]; then
 	if [[ $(echo $SHELL | rev | cut -d "/" -f 1 | rev) != 'zsh' ]]; then
 		echo "Updating shell. Too lazy to make this smarter right now..."
-		chsh --shell /usr/bin/zsh
+		sudo chsh --shell /usr/bin/zsh $USER
 	fi
 fi
 
