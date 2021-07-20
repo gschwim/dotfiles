@@ -25,3 +25,6 @@
 [submodule "nvim/pack/plugins/opt/rust.vim"]
 	path = nvim/pack/plugins/opt/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "nvim/pack/plugins/opt/vim-kivy"]
+	path = nvim/pack/plugins/opt/vim-kivy
+	url = https://github.com/farfanoide/vim-kivy.git

@@ -57,6 +57,7 @@ packadd! semshi
 packadd! vim-python-pep8-indent
 packadd! vim-commentary
 packadd! rust.vim
+packadd! vim-kivy
 packadd! indentLine
 let g:indentLine_char = "┆"
 " let g:indentLine_setColors = 0
