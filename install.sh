@@ -24,6 +24,7 @@ fi
 
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 cp zshrc ~/.zshrc
+cp zprofile ~/.zprofile
 if test -e ~/.oh-my-zsh; then
 	echo "Oh-My-Zsh already installed. Updating..."
 	zsh -c "source ~/.zshrc; omz update"	
