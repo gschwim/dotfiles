@@ -85,7 +85,7 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
 	git
 	brew
-	osx
+	macos
 	python
 	pyenv
 	)
