@@ -65,6 +65,9 @@ if [[ `uname` == "Linux" ]]; then
 	fi
 fi
 
+# tmux config
+cp tmux.conf ~/.tmux.conf
+
 # Go!
 zsh
 

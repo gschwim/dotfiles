@@ -64,6 +64,8 @@ let g:indentLine_char = "┆"
 
 " Flake8 config for ale, hopefully works in venv too
 packadd! ale
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_autocompletion_enabled = 1
 let g:ale_python_flake8_executable = 'python'
 let g:ale_python_flake8_options = '-m flake8'
 
