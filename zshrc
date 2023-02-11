@@ -133,6 +133,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vi=nvim
 alias nv=nvim
+export EDITOR=vi
 if [[ -x $(which colorls) ]]; then 
 	alias ls='colorls -lA --sd'
 else
