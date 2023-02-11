@@ -2,6 +2,9 @@
 
 export WORKDIR=$(pwd)
 
+echo 'Updating submodules'
+git submodule update --init --remote
+
 echo 'Cleaning out old nvim folder'
 rm -rf ~/.config/nvim
 
