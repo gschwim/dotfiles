@@ -2,6 +2,11 @@
 
 export WORKDIR=$(pwd)
 
+# establish some necessary directories
+if [ ! -e ~/.local/bin ]; then
+	mkdir -p ~/.local/bin
+
+
 echo 'Updating submodules'
 git submodule update --init --remote
 
@@ -91,4 +96,3 @@ cp tmux.conf ~/.tmux.conf
 
 # Go!
 zsh
-
