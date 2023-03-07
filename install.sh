@@ -4,8 +4,9 @@ export WORKDIR=$(pwd)
 
 # establish some necessary directories
 if [ ! -e ~/.local/bin ]; then
+	echo "Creating ~/.local/bin"
 	mkdir -p ~/.local/bin
-
+fi
 
 echo 'Updating submodules'
 git submodule update --init --remote
@@ -46,11 +47,14 @@ else
 
 fi
 
+wait
+
 ## install starship
 echo "Installing Starship..."
-curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes 1&> out.log
+curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes 
 cp starship.toml ~/.config/
 
+wait
 # install pyenv
 
 if test -e ~/.pyenv; then 
@@ -64,16 +68,18 @@ else
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 fi
 
+wait
+
 ## install rust things
-if test -e ~/.cargo; then
-	echo "Rust already installed. Skipping..."
-else
+if [ ! -e ~/.cargo ]; then
 	echo "Installing Rust"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 fi
-if  [ ! -e ~/.cargo/bin/exa ]
-then
+
+wait
+source ~/.cargo/env
+
+if  [ ! -e ~/.cargo/bin/exa ]; then
 	cargo install exa
 fi
 # if test -x ~/.cargo/bin/bat; then

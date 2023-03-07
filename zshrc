@@ -134,6 +134,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# environment coming on line
+export PATH=$PATH:~/.local/bin
+
 # get starship running
 eval "$(starship init zsh)"
 
