@@ -8,19 +8,22 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
 
-SPACESHIP_PROMPT_ADD_NEWLINE=”true”
-#SPACESHIP_CHAR_SYMBOL=\uf085
-SPACESHIP_CHAR_PREFIX="\uf061"
-SPACESHIP_CHAR_SUFFIX="\uf061 "
-SPACESHIP_CHAR_COLOR_SUCCESS=”yellow”
-SPACESHIP_PROMPT_DEFAULT_PREFIX=$(echo $HOST | cut -d . -f 1)
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=”true”
-SPACESHIP_USER_SHOW=”true”
-SPACESHIP_RPROMPT_ORDER=(
-	time
-	)
+
+## 03.06.2023 - commenting out to give starship prompt a try
+#ZSH_THEME="spaceship"
+
+#SPACESHIP_PROMPT_ADD_NEWLINE=”true”
+##SPACESHIP_CHAR_SYMBOL=\uf085
+#SPACESHIP_CHAR_PREFIX="\uf061"
+#SPACESHIP_CHAR_SUFFIX="\uf061 "
+#SPACESHIP_CHAR_COLOR_SUCCESS=”yellow”
+#SPACESHIP_PROMPT_DEFAULT_PREFIX=$(echo $HOST | cut -d . -f 1)
+#SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=”true”
+#SPACESHIP_USER_SHOW=”true”
+#SPACESHIP_RPROMPT_ORDER=(
+#	time
+#	)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -130,12 +133,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# get starship running
+eval "$(starship init zsh)"
+
+
+
+alias ls=exa
 alias vim=nvim
 alias vi=nvim
 alias nv=nvim
 export EDITOR=vi
-if [[ -x $(which colorls) ]]; then 
-	alias ls='colorls -lA --sd'
-else
-	echo "Colorls is not installed. Skipping..."
-fi
+# if [[ -x $(which colorls) ]]; then 
+# 	alias ls='colorls -lA --sd'
+# else
+# 	echo "Colorls is not installed. Skipping..."
+# fi

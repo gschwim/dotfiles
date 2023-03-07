@@ -11,11 +11,6 @@ rm -rf ~/.config/nvim
 echo 'Installing new nvim config'
 cp -a nvim ~/.config/
 
-# echo 'Installing Oh My Zsh!'
-# # clean out the old
-# rm -rf ~/.oh-my-zsh
-# rm ~/.zshrc
-
 # in with the new
 if [[ `uname` == "Linux" ]] ; then
 	ZPATH=$(which zsh)
@@ -46,6 +41,10 @@ else
 
 fi
 
+## install starship
+echo "Installing Starship..."
+curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes 1&> out.log
+cp starship.toml ~/.config/
 
 # install pyenv
 
@@ -60,6 +59,24 @@ else
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 fi
 
+## install rust things
+if test -e ~/.cargo; then
+	echo "Rust already installed. Skipping..."
+else
+	echo "Installing Rust"
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+fi
+if  [ ! -e ~/.cargo/bin/exa ]
+then
+	cargo install exa
+fi
+# if test -x ~/.cargo/bin/bat; then
+# 	cargo install bat
+# if test -x ~/.cargo/bin/dust; then
+# 	cargo install dust
+
+
 # change shell if needed
 if [[ `uname` == "Linux" ]]; then
 	if [[ $(echo $SHELL | rev | cut -d "/" -f 1 | rev) != 'zsh' ]]; then
@@ -68,10 +85,10 @@ if [[ `uname` == "Linux" ]]; then
 	fi
 fi
 
+
 # tmux config
 cp tmux.conf ~/.tmux.conf
 
 # Go!
 zsh
-
 
