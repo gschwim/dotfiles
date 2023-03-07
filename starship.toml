@@ -13,4 +13,4 @@ success_symbol = '[➜ ➜](bold green)' # The 'success_symbol' segment is being
 disabled = true
 
 [container]
-#disabled=true
+format = '[$symbol$symbol]($style) '
