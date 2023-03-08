@@ -22,7 +22,7 @@ if [[ `uname` == "Linux" ]] ; then
 	ZPATH=$(which zsh)
 	if ! [ -x "$ZPATH" ] ; then
 		echo "Installing zsh..."
-		sudo apt install zsh
+		sudo apt install --yes zsh
 	fi
 fi
 
@@ -66,6 +66,8 @@ if test -e ~/.pyenv; then
 else
 	echo "Installing pyenv..."
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
 fi
 
 wait
