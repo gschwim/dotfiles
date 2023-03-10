@@ -1,0 +1,82 @@
+# pallet used: https://www.canva.com/colors/color-palettes/quill-and-carton/
+
+format = """
+[](bg:#C0B3A0 fg:#000000)\
+$hostname$directory\
+[](fg:#C0B3A0 bg:#6B8490)\
+$git_branch\
+$git_status\
+[](fg:#6B8490 bg:#252930)\
+$nodejs\
+$python\
+$rust\
+$golang\
+$php\
+[](fg:#252930 bg:#000000)\
+\n$character"""
+
+right_format = """
+[󰽧](fg:#000000 bg:#252930)\
+$time\
+[󰽥](fg:#000000 bg:#252930)\
+"""
+
+[hostname]
+style = "fg:#252930 bg:#C0B3A0"
+format = "[ $ssh_symbol $hostname ]($style)"
+ssh_symbol = "󰣀"
+ssh_only = false
+
+
+[directory]
+style = "fg:#6B8490 bg:#C0B3A0"
+# style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#6B8490"
+format = '[[ $symbol $branch ](fg:#252930 bg:#6B8490)]($style)'
+
+[git_status]
+style = "bg:#6B8490"
+format = '[[($all_status$ahead_behind )](fg:#252930 bg:#6B8490)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#C0B3A0 bg:#252930)]($style)'
+
+[python]
+symbol = "🐍"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#C0B3A0 bg:#252930)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#C0B3A0 bg:#252930)]($style)'
+
+[golang]
+symbol = "ﳑ"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#C0B3A0 bg:#252930)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#C0B3A0 bg:#252930)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#C0B3A0 bg:#252930)]($style)'

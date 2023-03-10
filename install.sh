@@ -22,7 +22,7 @@ if [[ `uname` == "Linux" ]] ; then
 	ZPATH=$(which zsh)
 	if ! [ -x "$ZPATH" ] ; then
 		echo "Installing zsh..."
-		sudo apt install --yes zsh
+		sudo apt install --yes zsh wget
 	fi
 fi
 
