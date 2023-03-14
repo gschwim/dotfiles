@@ -152,3 +152,7 @@ export EDITOR=vi
 # else
 # 	echo "Colorls is not installed. Skipping..."
 # fi
+if [[ -e ~/.zshrc_local ]]; then
+	echo "Sourcing local overrides..."
+	source ~/.zshrc_local
+fi
