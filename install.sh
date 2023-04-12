@@ -6,6 +6,8 @@ export WORKDIR=$(pwd)
 echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
 	sudo apt install --yes zsh wget ripgrep bat git snapd
+	# Apt repos are fucking old!
+	sudo apt remove --yes neovim
 	sudo snap install nvim --classic
 elif [[ `uname` == "Darwin" ]] ; then
 	brew install wget ripgrep bat exa
