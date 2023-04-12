@@ -38,8 +38,9 @@ fi
 
 
 ## neovim!
-if [ ! -e ~/.config/nvim ]; then
-	echo "Clear any old nvim caches..."
+if [ ! -e ~/.config/nvim/.git ]; then
+	echo "Clear any old nvim stuff..."
+	rm -rf ~/.config/nvim
 	rm -rf ~/.local/share/nvim
 	echo "Install nvim config..."
 	git clone https://github.com/gschwim/dotfiles.nvim.git ~/.config/nvim/
