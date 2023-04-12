@@ -13,12 +13,13 @@ elif [[ `uname` == "Darwin" ]] ; then
 	brew install wget ripgrep bat exa
 fi
 
-# establish some necessary directories
+## establish some necessary directories
 if [ ! -e ~/.local/bin ]; then
 	echo "Creating ~/.local/bin"
 	mkdir -p ~/.local/bin
 fi
 
+## neovim!
 if [ ! -e ~/.config/nvim ]; then
 	echo "Clear any old nvim caches..."
 	rm -rf ~/.local/share/nvim
@@ -29,15 +30,7 @@ else
 	bash -c "cd ~/.config/nvim && git pull && exit"
 fi
 
-# echo 'Updating submodules'
-# git submodule update --init --remote
-
-# echo 'Cleaning out old nvim folder'
-# rm -rf ~/.config/nvim
-
-# echo 'Installing new nvim config'
-# cp -a nvim ~/.config/
-
+## Oh my zsh!
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 cp zshrc ~/.zshrc
 cp zprofile ~/.zprofile
