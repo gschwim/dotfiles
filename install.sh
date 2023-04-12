@@ -2,28 +2,36 @@
 
 export WORKDIR=$(pwd)
 
+## Install os dependencies, or upgrade them
+echo "Installing zsh and friends..."
+if [[ `uname` == "Linux" ]] ; then
+	sudo apt install --yes zsh wget ripgrep bat git
+elif [[ `uname` == "Darwin" ]] ; then
+	brew install wget ripgrep bat exa
+fi
+
 # establish some necessary directories
 if [ ! -e ~/.local/bin ]; then
 	echo "Creating ~/.local/bin"
 	mkdir -p ~/.local/bin
 fi
 
-echo 'Updating submodules'
-git submodule update --init --remote
-
-echo 'Cleaning out old nvim folder'
-rm -rf ~/.config/nvim
-
-echo 'Installing new nvim config'
-cp -a nvim ~/.config/
-
-# in with the new
-echo "Installing zsh and friends..."
-if [[ `uname` == "Linux" ]] ; then
-	sudo apt install --yes zsh wget ripgrep bat
-elif [[ `uname` == "Darwin" ]] ; then
-	brew install wget ripgrep bat exa
+if [ ! -e ~/.config/nvim ]; then
+	echo "Install nvim config..."
+	git clone https://github.com/gschwim/dotfiles.nvim.git ~/.config/nvim/
+else
+	echo "Updating nvim config..."
+	bash -c "cd ~/.config/nvim && git pull && exit"
 fi
+
+# echo 'Updating submodules'
+# git submodule update --init --remote
+
+# echo 'Cleaning out old nvim folder'
+# rm -rf ~/.config/nvim
+
+# echo 'Installing new nvim config'
+# cp -a nvim ~/.config/
 
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 cp zshrc ~/.zshrc
