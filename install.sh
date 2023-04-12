@@ -12,7 +12,7 @@ fi
 echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
 	sudo apt update
-	sudo apt install --yes zsh wget ripgrep bat git snapd curl \
+	sudo apt install --yes zsh wget ripgrep bat git curl \
 		build-essential gcc make unzip \
 		gdb lcov pkg-config \
 		libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
