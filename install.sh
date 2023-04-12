@@ -5,7 +5,8 @@ export WORKDIR=$(pwd)
 ## Install os dependencies, or upgrade them
 echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
-	sudo apt install --yes zsh wget ripgrep bat git
+	sudo apt install --yes zsh wget ripgrep bat git snapd
+	sudo snap install nvim --classic
 elif [[ `uname` == "Darwin" ]] ; then
 	brew install wget ripgrep bat exa
 fi
