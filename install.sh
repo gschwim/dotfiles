@@ -5,6 +5,7 @@ export WORKDIR=$(pwd)
 ## Install os dependencies, or upgrade them
 echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
+	sudo apt update
 	sudo apt install --yes zsh wget ripgrep bat git snapd
 	# Apt repos are fucking old!
 	sudo apt remove --yes neovim
