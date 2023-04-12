@@ -19,7 +19,7 @@ if [[ `uname` == "Linux" ]] ; then
 		libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
 		lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 
-	wget -O ~/.local/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	wget -O ~/.local/bin/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod +x ~/.local/bin/nvim
 	
 	## install exa, the replacement for 'ls'
