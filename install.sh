@@ -17,6 +17,8 @@ if [ ! -e ~/.local/bin ]; then
 fi
 
 if [ ! -e ~/.config/nvim ]; then
+	echo "Clear any old nvim caches..."
+	rm -rf ~/.local/share/nvim
 	echo "Install nvim config..."
 	git clone https://github.com/gschwim/dotfiles.nvim.git ~/.config/nvim/
 else
