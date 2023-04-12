@@ -95,63 +95,30 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# pyenv
-# Not sure why this line was in there. 04.12.2021
-# export PATH="/Users/schwim/.pyenv/bin:$PATH"
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-
-# export PATH="$HOME/.local/bin:$PATH"
-# eval "$(pyenv virtualenv-init -)"
-# eval "$(pyenv init --path)"
-# eval "$(pyenv init -)"
-
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # environment coming on line
-export PATH=$PATH:~/.local/bin
+export PATH=~/.local/bin:$PATH
 
 # get starship running
 eval "$(starship init zsh)"
 
 
+## Alias Away!
+# Linux specific alias stuff
+if [[ `uname` == "Linux" ]] ; then
+	# Ubuntu/Debian renamed bat
+	alias bat=batcat
+fi
 
+alias cat=bat
+alias less=bat
 alias ls='exa -l'
 alias vim=nvim
 alias vi=nvim
 alias nv=nvim
 export EDITOR=vi
-# if [[ -x $(which colorls) ]]; then 
-# 	alias ls='colorls -lA --sd'
-# else
-# 	echo "Colorls is not installed. Skipping..."
-# fi
+
+## Local overrides if you need them
 if [[ -e ~/.zshrc_local ]]; then
 	echo "Sourcing local overrides..."
 	source ~/.zshrc_local
