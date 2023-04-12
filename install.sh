@@ -18,12 +18,11 @@ echo 'Installing new nvim config'
 cp -a nvim ~/.config/
 
 # in with the new
+echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
-	ZPATH=$(which zsh)
-	if ! [ -x "$ZPATH" ] ; then
-		echo "Installing zsh..."
-		sudo apt install --yes zsh wget
-	fi
+	sudo apt install --yes zsh wget ripgrep bat
+elif [[ `uname` == "Darwin" ]] ; then
+	brew install wget ripgrep bat exa
 fi
 
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
