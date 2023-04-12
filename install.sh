@@ -6,7 +6,7 @@ export WORKDIR=$(pwd)
 echo "Installing zsh and friends..."
 if [[ `uname` == "Linux" ]] ; then
 	sudo apt update
-	sudo apt install --yes zsh wget ripgrep bat git snapd
+	sudo apt install --yes zsh wget ripgrep bat git snapd curl build-essential gcc make
 	# Apt repos are fucking old!
 	sudo apt remove --yes neovim
 	sudo snap install nvim --classic
