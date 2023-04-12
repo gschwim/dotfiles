@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # environment coming on line
-export PATH=$PATH:~/.local/bin
+export PATH=~/.local/bin:$PATH
 
 # get starship running
 eval "$(starship init zsh)"

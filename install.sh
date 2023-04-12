@@ -2,23 +2,40 @@
 
 export WORKDIR=$(pwd)
 
-## Install os dependencies, or upgrade them
-echo "Installing zsh and friends..."
-if [[ `uname` == "Linux" ]] ; then
-	sudo apt update
-	sudo apt install --yes zsh wget ripgrep bat git snapd curl build-essential gcc make
-	# Apt repos are fucking old!
-	sudo apt remove --yes neovim
-	sudo snap install nvim --classic
-elif [[ `uname` == "Darwin" ]] ; then
-	brew install wget ripgrep bat exa
-fi
-
 ## establish some necessary directories
 if [ ! -e ~/.local/bin ]; then
 	echo "Creating ~/.local/bin"
 	mkdir -p ~/.local/bin
 fi
+
+## Install os dependencies, upgrade them, and add os-specific installs
+echo "Installing zsh and friends..."
+if [[ `uname` == "Linux" ]] ; then
+	sudo apt update
+	sudo apt install --yes zsh wget ripgrep bat git snapd curl \
+		build-essential gcc make unzip \
+		gdb lcov pkg-config \
+		libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+		libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+		lzma lzma-dev tk-dev uuid-dev zlib1g-dev
+
+	wget -O ~/.local/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	chmod +x ~/.local/bin/nvim
+	
+	## install exa, the replacement for 'ls'
+	echo "Installing exa, the replacement for 'ls'..."
+	wget -O /tmp/exa.zip https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip
+	unzip /tmp/exa.zip -d ~/.local/
+
+	## install dust, the replacement for 'du'
+	echo "Installing dust, the replacement for 'du'..."
+	wget -O /tmp/dust.deb https://github.com/bootandy/dust/releases/download/v0.8.5/du-dust_0.8.5_amd64.deb
+	sudo dpkg -i /tmp/dust.deb
+
+elif [[ `uname` == "Darwin" ]] ; then
+	brew install wget ripgrep bat exa dust neovim
+fi
+
 
 ## neovim!
 if [ ! -e ~/.config/nvim ]; then
@@ -50,19 +67,16 @@ else
 	echo 'Installing spaceship prompt'
 	git clone -v https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-
 fi
-
 wait
 
 ## install starship
 echo "Installing Starship..."
 curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir ~/.local/bin --yes 
 cp starship.toml ~/.config/
-
 wait
-# install pyenv
 
+## install pyenv
 if test -e ~/.pyenv; then 
 	echo "pyenv already installed. Updating..."
 	cd ~/.pyenv
@@ -75,28 +89,18 @@ else
 	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 
 fi
-
 wait
 
-## install rust things
-if [ ! -e ~/.cargo ]; then
-	echo "Installing Rust"
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
+# ## install rust things
+# if [ ! -e ~/.cargo ]; then
+# 	echo "Installing Rust"
+# 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# fi
+#
+# wait
+# source ~/.cargo/env
 
-wait
-source ~/.cargo/env
-
-if  [ ! -e ~/.cargo/bin/exa ]; then
-	cargo install exa
-fi
-# if test -x ~/.cargo/bin/bat; then
-# 	cargo install bat
-# if test -x ~/.cargo/bin/dust; then
-# 	cargo install dust
-
-
-# change shell if needed
+## change shell if needed
 if [[ `uname` == "Linux" ]]; then
 	if [[ $(echo $SHELL | rev | cut -d "/" -f 1 | rev) != 'zsh' ]]; then
 		echo "Updating shell. Too lazy to make this smarter right now..."
@@ -105,8 +109,8 @@ if [[ `uname` == "Linux" ]]; then
 fi
 
 
-# tmux config
+## tmux config
 cp tmux.conf ~/.tmux.conf
 
-# Go!
+## Go!
 zsh
