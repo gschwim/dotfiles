@@ -16,6 +16,9 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'One Dark (Gogh)'
 
+config.initial_cols = 168
+config.initial_rows = 32
+
 config.font_size = 18
 
 config.keys = {
