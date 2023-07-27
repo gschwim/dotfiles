@@ -113,5 +113,8 @@ fi
 ## tmux config
 cp tmux.conf ~/.tmux.conf
 
+## wezterm config
+wezterm.lua ~/.wezterm.lua
+
 ## Go!
 zsh
