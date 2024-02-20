@@ -17,7 +17,26 @@ end
 
 -- BEGIN CONFIGURATION
 
-config.color_scheme = 'One Dark (Gogh)'
+-- Get the desired color scheme and make the necessary overrides.
+
+local OneDark = wezterm.color.get_builtin_schemes()['OneDark (Gogh)']
+
+-- Overrides here
+-- Original foreground from OneDark 
+-- OneDark.foreground = '#5c6370'
+-- plus 1
+-- OneDark.foreground = '#6D7481'
+-- plus 2
+OneDark.foreground = '#8F96A3'
+
+-- Add back as a color scheme of our choosing
+config.color_schemes = {
+  ['OneDark'] = OneDark,
+}
+
+-- Select the color_scheme
+config.color_scheme = 'OneDark'
+-- config.color_scheme = 'One Dark (Gogh)'
 -- This one is blacker in the background but drops the grey text
 -- config.color_scheme = 'One Half Black (Gogh)'
 
