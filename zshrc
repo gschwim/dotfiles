@@ -116,6 +116,8 @@ alias ls='exa -l'
 alias vim=nvim
 alias vi=nvim
 alias nv=nvim
+# needs yt-dlp to be installed of course
+alias vget="yt-dlp --cookies-from-browser chrome"
 export EDITOR=vi
 
 ## Local overrides if you need them

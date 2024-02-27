@@ -52,6 +52,11 @@ fi
 ## Oh my zsh!
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 cp zshrc ~/.zshrc
+if [ ! -e ~/.zshrc_local ]; then
+	echo "Creating ~/.zshrc_local"
+	cp zshrc_local ~/.zshrc_local
+fi
+
 cp zprofile ~/.zprofile
 if test -e ~/.oh-my-zsh; then
 	echo "Oh-My-Zsh already installed. Updating..."
