@@ -58,6 +58,8 @@ if [ ! -e ~/.zshrc_local ]; then
 fi
 
 cp zprofile ~/.zprofile
+cp zshenv ~/.zshenv
+
 if test -e ~/.oh-my-zsh; then
 	echo "Oh-My-Zsh already installed. Updating..."
 	zsh -c "source ~/.zshrc; omz update"	
